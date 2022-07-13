@@ -2,19 +2,19 @@ import * as C from './styles'
 
 export function CartItem(){
   return(
-    <div>
-      <button>X</button>
-      <img src="" alt="" />
-      <span>Apple Watch Series 4 GPS</span>
-      <div>
-        Qtd:
-        <div>
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-        </div>
-      </div>
-      <strong>R$399</strong>
-    </div>
+    <C.Container>
+      <C.CloseButton type="button">X</C.CloseButton>
+      <C.ProductImage src="" alt="" />
+      <C.ProductName>Apple Watch Series 4 GPS</C.ProductName>
+      <C.AmountDiv>
+        <C.AmountText>Qtd:</C.AmountText>
+        <C.AmountButtonsContainer>
+          <C.DecreaseButton>-</C.DecreaseButton>
+          <C.Amount>1</C.Amount>
+          <C.IncreaseButton>+</C.IncreaseButton>
+        </C.AmountButtonsContainer>
+      </C.AmountDiv>
+      <C.Price>R$399</C.Price>
+    </C.Container>
   )
 }

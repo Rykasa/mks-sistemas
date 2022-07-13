@@ -7,7 +7,7 @@ export function Cart(){
       <C.AsideCenter>
         <C.Header>
           <C.Title>Carrinho de compras</C.Title>
-          <C.CloseButton type="button">X</C.CloseButton>
+          <C.CloseButton>X</C.CloseButton>
         </C.Header>
         <C.CartContainer>
           <C.CartList>
