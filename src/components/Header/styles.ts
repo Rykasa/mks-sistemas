@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   background-color: #0F52BA;
   height: 6.25rem;
+  position: sticky;
+  top: 0;
+  left: 0;
 `;
 
 export const HeaderCenter = styled.div`
