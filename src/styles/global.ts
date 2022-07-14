@@ -10,5 +10,6 @@ export const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'Montserrat', sans-serif;
     background-color: #E5E5E5;
+    -webkit-font-smoothing: antialised;
   }
 `;

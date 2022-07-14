@@ -28,7 +28,7 @@ const initialState: ProductsState = {
   cart: [],
   amount: 0,
   total: 0,
-  isLoading: false,
+  isLoading: true,
   isCartOpen: false,
   error: '',
 }

@@ -9,6 +9,16 @@ export const Container = styled.div`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
   border-radius: .5rem;
   overflow: hidden;
+  animation: opacity 0.5s ease-in;
+
+  @keyframes opacity{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 `;
 
 export const ProductImage = styled.img`
