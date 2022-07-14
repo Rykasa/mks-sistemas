@@ -33,7 +33,9 @@ export const CloseButton = styled.button`
 `;
 
 export const ProductImage = styled.img`
-  width: 2rem;
+  width: 3.5rem;
+  height: 3.75rem;
+  object-fit: cover;
 `;
 
 export const ProductName = styled.span`

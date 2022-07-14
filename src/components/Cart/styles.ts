@@ -73,6 +73,14 @@ export const CartList = styled.div`
   max-height: 700px;
 `;
 
+export const EmptyText = styled.span`
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+`;
+
 export const TotalDiv = styled.div`
   display: flex;
   justify-content: space-between;

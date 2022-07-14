@@ -50,7 +50,7 @@ export function CartItem({ name, id, photo, price, amount }: CartItemProps){
             +</C.IncreaseButton>
         </C.AmountButtonsContainer>
       </C.AmountDiv>
-      <C.Price>R${price}</C.Price>
+      <C.Price>R${price.replace('.00', '')}</C.Price>
     </C.Container>
   )
 }

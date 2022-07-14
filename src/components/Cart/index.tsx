@@ -22,12 +22,14 @@ export function Cart(){
         </C.Header>
         <C.CartContainer>
           <C.CartList>
-            {productsState.cart.length > 0 && (
+            {productsState.cart.length > 0 ? (
               productsState.cart.map((item) =>{
               return (
                 <CartItem key={item.id} {...item} />
               )
-            }))}
+            })) : (
+              <C.EmptyText>Seu carrinho está vazio</C.EmptyText>
+            )}
           </C.CartList>
           <C.TotalDiv>
             <span>Total:</span>

@@ -129,7 +129,7 @@ export const productsReducer = (state = initialState, action: {
           }
         }
         return cartItem
-      })
+      }).filter((cartItem) => cartItem.amount !== 0)
 
       return {
         ...state,
