@@ -13,19 +13,22 @@ export const Container = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  background-color: red;
-  height: 60%;
+  height: 47%;
+  object-fit: scale-down;
 `;
 
 export const InfoDiv = styled.div`
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: .5rem;
+  flex: 1;
 `;
 
 export const ProductInfo = styled.header`
   display: flex;
+  justify-content: space-between;
 
   span{
     font-size: 1rem;
@@ -41,8 +44,9 @@ export const ProductInfo = styled.header`
     font-size: 0.9375rem;
     border-radius: 0.3125rem;
     height: fit-content;
-    width: 64px;
-    height: 26px;
+    width: 4.625rem;
+    height: 1.625rem;
+    text-align: center;
   }
 `;
 
@@ -74,6 +78,7 @@ export const Button = styled.button`
   font-size: 0.875rem;
   line-height: 1.125rem;
   text-transform: uppercase;
+  cursor: pointer;
 
   img{
     width: .875rem;

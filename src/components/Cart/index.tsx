@@ -1,7 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../App";
 import { useAppStore } from "../../hooks/useAppStore";
 import { closeCart } from "../../store";
-import { ProductsState } from "../../store/reducers/products";
 import { CartItem } from "../CartItem";
 import * as C from './styles'
 
@@ -24,8 +22,12 @@ export function Cart(){
         </C.Header>
         <C.CartContainer>
           <C.CartList>
-            <CartItem />
-            <CartItem />
+            {productsState.cart.length > 0 && (
+              productsState.cart.map((item) =>{
+              return (
+                <CartItem key={item.id} {...item} />
+              )
+            }))}
           </C.CartList>
           <C.TotalDiv>
             <span>Total:</span>

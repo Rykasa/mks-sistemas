@@ -32,7 +32,9 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const ProductImage = styled.img``;
+export const ProductImage = styled.img`
+  width: 2rem;
+`;
 
 export const ProductName = styled.span`
   color: #2c2c2c;

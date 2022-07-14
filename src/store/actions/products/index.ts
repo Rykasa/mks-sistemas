@@ -4,8 +4,10 @@ export type ProductType = {
   id: number;
   name: string;
   brand: string;
+  photo: string;
   description: string;
-  price: number;
+  price: string;
+  amount: number;
 }
 
 export function getProductsRequest(): {
@@ -47,5 +49,25 @@ export function closeCart(): {
 }{
   return {
     type: types.CLOSE_CART
+  }
+}
+
+export function addItemToCart(CartItem: ProductType): {
+  type: string
+  payload: ProductType
+}{
+  return {
+    type: types.ADD_ITEM_TO_CART,
+    payload: CartItem
+  }
+}
+
+export function removeItemFromCart(productId: number): {
+  type: string
+  payload: number
+}{
+  return {
+    type: types.REMOVE_ITEM_FROM_CART,
+    payload: productId
   }
 }

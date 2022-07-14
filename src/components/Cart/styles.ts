@@ -70,6 +70,7 @@ export const CartList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.375rem;
+  max-height: 700px;
 `;
 
 export const TotalDiv = styled.div`

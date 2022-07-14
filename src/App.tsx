@@ -19,8 +19,6 @@ export function App() {
     dispatch(getProductsRequest())
   }, [])
 
-  console.log(productsState)
-  
   
   return (
     <>
@@ -29,14 +27,11 @@ export function App() {
         <C.ProductSection>
           <C.SectionCenter>
             <C.ProductsList>
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
-              <Product />
+              {productsState.products.products.map((product) =>{
+                return (
+                  <Product key={product.id} {...product} />
+                )
+              })}
             </C.ProductsList>
           </C.SectionCenter>
         </C.ProductSection>
