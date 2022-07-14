@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Aside = styled.aside`
-  position: absolute;
+export const Aside = styled.aside<{ isCartOpen: boolean }>`
+  position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
@@ -9,7 +9,7 @@ export const Aside = styled.aside`
   max-width: 486px;
   background: #0F52BA;
   box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
-  display: flex;
+  display: ${({ isCartOpen }) => isCartOpen ? 'flex' : 'none'};
   flex-direction: column;
 `;
 

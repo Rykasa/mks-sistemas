@@ -1,13 +1,26 @@
+import { useAppDispatch, useAppSelector } from "../../App";
+import { useAppStore } from "../../hooks/useAppStore";
+import { closeCart } from "../../store";
+import { ProductsState } from "../../store/reducers/products";
 import { CartItem } from "../CartItem";
 import * as C from './styles'
 
 export function Cart(){
+  const { dispatch, productsState } = useAppStore()
+  function handleCloseModal(){
+    dispatch(closeCart())
+  }
+
   return(
-    <C.Aside>
+    <C.Aside isCartOpen={productsState.isCartOpen}>
       <C.AsideCenter>
         <C.Header>
           <C.Title>Carrinho de compras</C.Title>
-          <C.CloseButton>X</C.CloseButton>
+          <C.CloseButton 
+            type="button" 
+            onClick={handleCloseModal}
+          >
+            X</C.CloseButton>
         </C.Header>
         <C.CartContainer>
           <C.CartList>

@@ -43,6 +43,7 @@ export const CartButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  cursor: pointer;
 `;
 
 export const CartImg = styled.img`
