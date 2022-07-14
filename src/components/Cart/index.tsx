@@ -31,7 +31,7 @@ export function Cart(){
           </C.CartList>
           <C.TotalDiv>
             <span>Total:</span>
-            <span>R$798</span>
+            <span>R${productsState.total}</span>
           </C.TotalDiv>
         </C.CartContainer>
       </C.AsideCenter>

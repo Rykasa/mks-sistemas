@@ -71,3 +71,21 @@ export function removeItemFromCart(productId: number): {
     payload: productId
   }
 }
+
+export function getTotals(): {
+  type: string
+}{
+  return {
+    type: types.GET_TOTALS,
+  }
+}
+
+export function toggleAmount(id: number, type: string): {
+  type: string
+  payload: {id: number, type: string}
+}{
+  return {
+    type: types.TOGGLE_AMOUNT,
+    payload: {id, type}
+  }
+}

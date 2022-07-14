@@ -8,6 +8,7 @@ export interface ProductsState {
   isLoading: boolean,
   cart: ProductType[],
   amount: number,
+  total: number,
   isCartOpen: boolean,
   error: string,
 }
@@ -26,6 +27,7 @@ const initialState: ProductsState = {
   },
   cart: [],
   amount: 0,
+  total: 0,
   isLoading: false,
   isCartOpen: false,
   error: '',
@@ -66,7 +68,7 @@ export const productsReducer = (state = initialState, action: {
       };
     case types.ADD_ITEM_TO_CART:
       if(state.cart.length > 0){
-        const hasItem = state.cart.filter((item) => item.id === action.payload.id)
+        const hasItem = state.cart.filter((cartItem) => cartItem.id === action.payload.id)
         if(hasItem.length > 0){
           const tempCart = state.cart.map((cartItem) =>{
             if(cartItem.id === action.payload.id){
@@ -87,10 +89,51 @@ export const productsReducer = (state = initialState, action: {
             cart: [...state.cart, action.payload]
         };
     case types.REMOVE_ITEM_FROM_CART:
-      const tempCart = state.cart.filter((item) => item.id !== action.payload)
+      const tempCart = state.cart.filter((cartItem) => cartItem.id !== action.payload)
       return {
         ...state,
         cart: tempCart
+      };
+    case types.GET_TOTALS:
+       let { total, amount } = state.cart.reduce((cartTotal, cartItem) =>{
+        const { price, amount } = cartItem
+        const itemTotal = parseInt(price) * amount
+
+        cartTotal.total += itemTotal
+        cartTotal.amount += amount
+
+        return cartTotal
+      }, {
+        total: 0,
+        amount: 0
+      })
+      return{
+        ...state,
+        amount,
+        total
+      };
+    case types.TOGGLE_AMOUNT:
+      const newCart = state.cart.map((cartItem) =>{
+        if(cartItem.id === action.payload.id){
+          if(action.payload.type === 'increase'){
+            cartItem = {
+              ...cartItem,
+              amount: cartItem.amount + 1
+            }
+          }
+          if(action.payload.type === 'decrease'){
+            cartItem = {
+              ...cartItem,
+              amount: cartItem.amount - 1
+            }
+          }
+        }
+        return cartItem
+      })
+
+      return {
+        ...state,
+        cart: newCart,
       }
 
     default:

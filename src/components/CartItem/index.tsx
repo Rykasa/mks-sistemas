@@ -1,5 +1,5 @@
 import { useAppStore } from '../../hooks/useAppStore';
-import { removeItemFromCart } from '../../store';
+import { removeItemFromCart, toggleAmount } from '../../store';
 import * as C from './styles'
 
 interface CartItemProps{
@@ -17,6 +17,14 @@ export function CartItem({ name, id, photo, price, amount }: CartItemProps){
     dispatch(removeItemFromCart(id))
   }
 
+  function handleDecreaseAmount(){
+    dispatch(toggleAmount(id, 'decrease'))
+  }
+
+  function handleIncreaseAmount(){
+    dispatch(toggleAmount(id, 'increase'))
+  }
+
   return(
     <C.Container>
       <C.CloseButton 
@@ -29,9 +37,17 @@ export function CartItem({ name, id, photo, price, amount }: CartItemProps){
       <C.AmountDiv>
         <C.AmountText>Qtd:</C.AmountText>
         <C.AmountButtonsContainer>
-          <C.DecreaseButton>-</C.DecreaseButton>
+          <C.DecreaseButton
+            type="button"
+            onClick={handleDecreaseAmount}
+          >
+            -</C.DecreaseButton>
           <C.Amount>{amount}</C.Amount>
-          <C.IncreaseButton>+</C.IncreaseButton>
+          <C.IncreaseButton
+            type="button"
+            onClick={handleIncreaseAmount}
+          >
+            +</C.IncreaseButton>
         </C.AmountButtonsContainer>
       </C.AmountDiv>
       <C.Price>R${price}</C.Price>

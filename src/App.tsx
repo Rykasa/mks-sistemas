@@ -4,7 +4,7 @@ import { Product } from "./components/Product";
 import { Cart } from "./components/Cart";
 import { Footer } from "./components/Footer";
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, getProductsRequest, RootState } from './store';
+import { AppDispatch, getProductsRequest, getTotals, RootState } from './store';
 import { useEffect } from 'react';
 import { ProductsState } from './store/reducers/products';
 
@@ -18,6 +18,10 @@ export function App() {
   useEffect(() =>{
     dispatch(getProductsRequest())
   }, [])
+
+  useEffect(() =>{
+    dispatch(getTotals())
+  }, [productsState.cart])
 
   
   return (

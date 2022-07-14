@@ -21,7 +21,7 @@ export function Header(){
           onClick={handleOpenCart}
         >
           <C.CartImg src={CartIcon} alt="cart icon" />
-          <C.Amount>{productsState.cart.length}</C.Amount>
+          <C.Amount>{productsState.amount}</C.Amount>
         </C.CartButton>
       </C.HeaderCenter>
     </C.HeaderContainer>
